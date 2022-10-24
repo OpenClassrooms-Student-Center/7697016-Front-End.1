@@ -40,11 +40,11 @@ for (let i = 0; i < pieces.length; i++) {
 const boutonTrier = document.querySelector(".btn-trier");
 
 boutonTrier.addEventListener("click", function () {
-    const piecesOrdonnées = Array.from(pieces);
-    piecesOrdonnées.sort(function (a, b) {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function (a, b) {
         return a.prix - b.prix;
      });
-     console.log(piecesOrdonnées);
+     console.log(piecesOrdonnees);
 });
 
 const boutonFiltrer = document.querySelector(".btn-filtrer");
