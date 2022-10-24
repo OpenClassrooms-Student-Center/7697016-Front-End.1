@@ -4,7 +4,8 @@
   "description": "Support de Code pour le cours OpenClassrooms Creez des pages web dynamiques avec javascript",
   "main": "pieces.js",
   "scripts": {
-    "start":"http-server"
+    "start":"http-server",
+    "dev": "http-server"
   },
   "repository": {
     "type": "git",
