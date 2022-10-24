@@ -36,3 +36,23 @@ for (let i = 0; i < pieces.length; i++) {
 
  }
  
+ //gestion des bouttons 
+const boutonTrier = document.querySelector(".btn-trier");
+
+boutonTrier.addEventListener("click", function () {
+    const piecesOrdonnées = Array.from(pieces);
+    piecesOrdonnées.sort(function (a, b) {
+        return a.prix - b.prix;
+     });
+     console.log(piecesOrdonnées);
+});
+
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFiltrer.addEventListener("click", function () {
+    const piecesFiltrees = pieces.filter(function (piece) {
+        return piece.prix <= 35;
+    });
+   console.log(piecesFiltrees)
+});
+
