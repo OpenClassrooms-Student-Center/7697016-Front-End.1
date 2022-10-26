@@ -15,10 +15,42 @@
 			<!-- Menu de recherche -->
 			<section class="filtres">
 				<h3>Filtres</h3>
+				<button class="btn-trier">Trier par prix croissant</button>
+				<br>
+				<button class="btn-filtrer">Filtrer les pièces non abordables</button>
+				<br>
+				<button class="btn-decroissant">Trier par prix décroissant</button>
+				<br>
+				<button class="btn-nodesc">Filtrer les pièces sans description</button>
+				<br>
+				<p>Prix maximum:</p>
+				<input type="range" name="prix-max" id="prix-max" min="0" max="60" step="5">
+				<h3>Ajouter un avis</h3>
+				<form class="formulaire-avis">
+					Identifiant de la pièce :<br>
+					<input type="number" name="piece-id"><br>
+					Nom d'utilisateur :<br>
+					<input type="text" name="utilisateur"><br>
+					Avis :<br>
+					<input type="text" name="commentaire"><br>
+					Note:<br>
+					<input type="number" name="nbEtoiles" min="0" max="5"><br>
+					<button>Envoyer</button>
+				</form>
+				<!-- code à ajouter-->
+				<h3>Données</h3>
+				<button class="btn-maj">Mettre à jour les pièces</button>
 			</section>
 
 			<!-- Fiches produits -->
 			<section class="fiches">
+				<!-- Code ajouté -->
+				<div class="abordables">
+
+				</div>
+				<div class="disponibles">
+
+				</div>
 			</section>
 		</main>
 	</body>
