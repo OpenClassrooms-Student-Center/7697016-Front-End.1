@@ -63,7 +63,7 @@ export async function afficherGraphiqueAvis() {
         labels: labels,
         datasets: [{
             label: "Étoiles attribuées",
-            data: nb_commentaires.reverse(),
+            data: nb_commentaires.reverse(), // le reverse permet de mettre les commentaires à 5 étoiles en haut
             backgroundColor: "rgba(255, 230, 0, 1)", // couleur jaune
         }],
     };
