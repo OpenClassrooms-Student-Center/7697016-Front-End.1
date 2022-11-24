@@ -36,7 +36,7 @@ for (let i = 0; i < pieces.length; i++) {
 
  }
  
- //gestion des bouttons 
+ //gestion des boutons 
 const boutonTrier = document.querySelector(".btn-trier");
 
 boutonTrier.addEventListener("click", function () {
