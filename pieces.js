@@ -79,7 +79,6 @@ for(let i = pieces.length -1 ; i >= 0; i--){
         noms.splice(i,1);
     }
 }
-console.log(noms);
 
 //Création de l'en-tête
 const pElement = document.createElement('p');
@@ -95,4 +94,4 @@ for(let i=0; i < noms.length ; i++){
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
     .appendChild(pElement)
-    .appendChild(abordablesElements);
+    .appendChild(abordablesElements)
