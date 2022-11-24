@@ -80,16 +80,13 @@ for(let i = pieces.length -1 ; i >= 0; i--){
     }
 }
 
-//Création de l'en-tête
-const pElement = document.createElement('p');
-pElement.innerText = "Pièces abordables";
 //Création de la liste
 const abordablesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
 for(let i=0; i < noms.length ; i++){
     const nomElement = document.createElement('li');
     nomElement.innerText = noms[i];
-    abordablesElements.appendChild(nomElement);
+    abordablesElements.appendChild(nomElement)
 }
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
