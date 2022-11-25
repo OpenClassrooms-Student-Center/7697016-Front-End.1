@@ -36,7 +36,7 @@ for (let i = 0; i < pieces.length; i++) {
 
  }
  
- //gestion des bouttons 
+ //gestion des boutons 
 const boutonTrier = document.querySelector(".btn-trier");
 
 boutonTrier.addEventListener("click", function () {
@@ -53,7 +53,7 @@ boutonFiltrer.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.prix <= 35;
     });
-   console.log(piecesFiltrees)
+   console.log(piecesFiltrees);
 });
 
 //Correction Exercice
@@ -71,43 +71,39 @@ const boutonNoDescription = document.querySelector(".btn-nodesc");
 
 boutonNoDescription.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
-        return piece.description
+        return piece.description;
     });
-   console.log(piecesFiltrees)
+   console.log(piecesFiltrees);
 });
 
 const noms = pieces.map(piece => piece.nom);
 for(let i = pieces.length -1 ; i >= 0; i--){
     if(pieces[i].prix > 35){
-        noms.splice(i,1)
+        noms.splice(i,1);
     }
 }
 console.log(noms)
-//Création de l'en-tête
 
-const pElement = document.createElement('p')
-pElement.innerText = "Pièces abordables";
 //Création de la liste
 const abordablesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
 for(let i=0; i < noms.length ; i++){
     const nomElement = document.createElement('li');
     nomElement.innerText = noms[i];
-    abordablesElements.appendChild(nomElement)
+    abordablesElements.appendChild(nomElement);
 }
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
-    .appendChild(pElement)
     .appendChild(abordablesElements)
 
 //Code Exercice 
-const nomsDisponibles = pieces.map(piece => piece.nom)
-const prixDisponibles = pieces.map(piece => piece.prix)
+const nomsDisponibles = pieces.map(piece => piece.nom);
+const prixDisponibles = pieces.map(piece => piece.prix);
 
 for(let i = pieces.length -1 ; i >= 0; i--){
     if(pieces[i].disponibilite === false){
-        nomsDisponibles.splice(i,1)
-        prixDisponibles.splice(i,1)
+        nomsDisponibles.splice(i,1);
+        prixDisponibles.splice(i,1);
     }
 }
 
@@ -115,10 +111,8 @@ const disponiblesElement = document.createElement('ul');
 
 for(let i=0 ; i < nomsDisponibles.length ; i++){
     const nomElement = document.createElement('li');
-    nomElement.innerText = `${nomsDisponibles[i]} - ${prixDisponibles[i]} €`
-    disponiblesElement.appendChild(nomElement)
+    nomElement.innerText = `${nomsDisponibles[i]} - ${prixDisponibles[i]} €`;
+    disponiblesElement.appendChild(nomElement);
 }
 
-const pElementDisponible = document.createElement('p')
-pElementDisponible.innerText = "Pièces disponibles:";
-document.querySelector('.disponibles').appendChild(pElementDisponible).appendChild(disponiblesElement)
+document.querySelector('.disponibles').appendChild(disponiblesElement);
