@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/OpenClassrooms-Student-Center/7697016-Front-End.1#readme",
   "dependencies": {
-    "chart.js": "^3.9.1",
+    "chart.js": "^4.1.2",
     "http-server": "^14.1.1"
   }
 }
