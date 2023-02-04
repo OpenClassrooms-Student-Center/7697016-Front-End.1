@@ -56,7 +56,7 @@ boutonFiltrer.addEventListener("click", function () {
    console.log(piecesFiltrees)
 });
 
-const boutonTrier = document.querySelector(".btn-trier");
+const boutonTrier = document.querySelector(".btn-decroissant");
 
 boutonTrier1.addEventListener("click", function() {
     const piecesOrdonnees1 =Array.from(pieces);
@@ -66,7 +66,7 @@ boutonTrier1.addEventListener("click", function() {
     console.log(piecesOrdonnees1)
 }); 
 
-const boutonFiltrer = document.querySelector(".btn-filtrer");
+const boutonFiltrer = document.querySelector(".btn-description");
 
 boutonFilter1.addEventListener("click", function() {
     const piecesFiltrees1 =Array.from(function (piece) { 
