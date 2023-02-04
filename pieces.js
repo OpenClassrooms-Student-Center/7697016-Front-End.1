@@ -56,3 +56,24 @@ boutonFiltrer.addEventListener("click", function () {
    console.log(piecesFiltrees)
 });
 
+const boutonTrier = document.querySelector(".btn-trier");
+
+boutonTrier1.addEventListener("click", function() {
+    const piecesOrdonnees1 =Array.from(pieces);
+    piecesOrdonnees1.sort(function (a, b) {
+        return b.prix - a.prix;
+    });
+    console.log(piecesOrdonnees1)
+}); 
+
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFilter1.addEventListener("click", function() {
+    const piecesFiltrees1 =Array.from(function (piece) { 
+        return piece.description;
+    });
+    console.log(piecesFiltrees1)
+}); 
+    
+    
+    
