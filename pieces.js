@@ -17,3 +17,14 @@ sectionFiches.appendChild(imageElement);
 sectionFiches.appendChild(nomElement);
 sectionFiches.appendChild(prixElement);
 sectionFiches.appendChild(categorieElement);
+
+//Exercice (P1C4)
+
+const descriptionElement = createElement("p");
+descriptionElement.innerText = article.description ?? "(Pas de description pour le moment)";
+
+const disponibiliteElement = createElement("p");
+disponibiliteElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
+
+sectionFiches.appendChild(description);
+sectionFiches.appendChild(disponibilite);
