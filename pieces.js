@@ -10,10 +10,9 @@ imageElement.src = article.image;
 const nomElement = document.createElement("h2");
 nomElement.innerText = article.nom;
 
-// Je met le signe $ car je suis au Canada :)
 const prixElement = document.createElement("p");
 
-prixElement.innerText = `Prix: ${article.prix} $ (${article.prix < 35 ? "$" : "$$$"})`;
+prixElement.innerText = `Prix: ${article.prix} € (${article.prix < 35 ? "€" : "€€€"})`;
 const categorieElement = document.createElement("p");
 categorieElement.innerText = article.categorie ?? "(Aucune categorie)";
 
