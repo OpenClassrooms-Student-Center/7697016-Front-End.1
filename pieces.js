@@ -35,3 +35,22 @@ pieceElement.appendChild(categorieElement);
 pieceElement.appendChild(descriptionElement);
 pieceElement.appendChild(disponibiliteElement);
 }
+
+const boutonTrier = document.querySelector(".btn-trier");
+boutonTrier.addEventListener("click", () => {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort((a, b) => {
+        return a.prix - b.prix;
+    })
+    console.log(pieces)
+
+});
+
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFiltrer.addEventListener("click", () => {
+   const piecesFiltrees = pieces.filter((piece) => {
+       return piece.prix <= 35;
+   });
+   console.log(piecesFiltrees)
+});
