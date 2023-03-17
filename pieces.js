@@ -56,3 +56,24 @@ boutonFiltrer.addEventListener("click", function () {
    console.log(piecesFiltrees)
 });
 
+const boutonTrierDecroissant = document.querySelector(".btn-trierDecroissant");
+
+boutonTrierDecroissant.addEventListener("click", function () {
+    const piecesOrdonneesDecroissant = Array.from(pieces);
+    piecesOrdonneesDecroissant.sort(function (a, b) {
+        return b.prix - a.prix;
+     });
+     console.log(piecesOrdonneesDecroissant);
+});
+
+const boutonFiltrerDescription = document.querySelector(".btn-description");
+
+boutonFiltrerDescription.addEventListener("click", function () {
+    const piecesFiltreesDescription = pieces.filter(function (piece) {
+        return piece.description;
+    });
+   console.log(piecesFiltreesDescription)
+});
+
+
+
