@@ -42,7 +42,7 @@ boutonTrier.addEventListener("click", () => {
     piecesOrdonnees.sort((a, b) => {
         return a.prix - b.prix;
     })
-    console.log(pieces)
+    console.log(piecesOrdonnees)
 
 });
 
