@@ -4,7 +4,12 @@ const pieces = await reponse.json();
 
 // Créations des éléments dynamiquement
 
-const article = pieces[0];
+for (let i = 0; i < pieces.length; i++) {
+
+const article = pieces[i];
+const sectionFiches = document.querySelector(".fiches");
+// nouvel élément pour balise article liée à automobile
+const pieceElement = document.createElement("article");
 const imageElement = document.createElement("img");
 imageElement.src = article.image;
 const nomElement = document.createElement("h2");
@@ -20,10 +25,13 @@ disponibiliteElement.innerText = article.disponibilite ? "En stock" : "Rupture d
 
 // Insertion des éléments dans le parent qui a la classe ".fiches"
 
-const sectionFiches = document.querySelector(".fiches");
-sectionFiches.appendChild(imageElement);
-sectionFiches.appendChild(nomElement);
-sectionFiches.appendChild(prixElement);
-sectionFiches.appendChild(categorieElement);
-sectionFiches.appendChild(descriptionElement);
-sectionFiches.appendChild(disponibiliteElement);
+// insertion du nouvel élément article à la section Fiche
+sectionFiches.appendChild(pieceElement);
+// on rattache tout le reste à pieceElement
+pieceElement.appendChild(imageElement);
+pieceElement.appendChild(nomElement);
+pieceElement.appendChild(prixElement);
+pieceElement.appendChild(categorieElement);
+pieceElement.appendChild(descriptionElement);
+pieceElement.appendChild(disponibiliteElement);
+}
