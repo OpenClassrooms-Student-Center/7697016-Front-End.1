@@ -80,6 +80,14 @@ for(let i = pieces.length -1 ; i >= 0; i--){
     }
 }
 
+const nomsDispos = pieces.map(piece => piece.nom);
+for(let i = pieces.length -1 ; i >= 0; i--){
+    if(pieces[i].disponibilite === false){
+        nomsDispos.splice(i,1);
+    }
+}
+
+
 //Création de la liste
 const abordablesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
@@ -91,3 +99,18 @@ for(let i=0; i < noms.length ; i++){
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
     .appendChild(abordablesElements)
+
+
+// Création de la liste des produits disponibles
+
+const disponiblesElements = document.createElement('ul');
+//Ajout de chaque nom à la liste
+for(let i=0; i < nomsDispos.length ; i++){
+    const dispoNomElement = document.createElement('li');
+    dispoNomElement.innerText = `${nomsDispos[i]} - ${pieces[i].prix} €`;
+    disponiblesElements.appendChild(dispoNomElement)
+}
+
+// Ajout des éléments disponibles dans le bloc ayant la classe .disponible
+
+document.querySelector('.disponible').appendChild(disponiblesElements);
