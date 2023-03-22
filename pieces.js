@@ -74,7 +74,6 @@ boutonFiltrerDescription.addEventListener("click", function () {
    console.log(piecesFiltreesDescription);
 });
 
-
 /* Mapper une liste avec fonction lambda */
 
 const noms = pieces.map(piece => piece.nom)
@@ -86,15 +85,16 @@ for (let i = pieces.length -1; i >= 0;  i--) {
 //console.log(noms);
 
 const nomsDispos = pieces.map(piece => piece.nom);
+const prixDispos = pieces.map(piece => piece.prix)
+
 for(let i = pieces.length -1 ; i >= 0; i--){
     if(pieces[i].disponibilite === false){
         nomsDispos.splice(i,1);
+        prixDispos.splice(i,1);
     }
 }
 
-console.log(nomsDispos)
-
-
+//console.log(nomsDispos)
 
 // On crée la liste d'éléments abordables
 
@@ -107,7 +107,6 @@ for (let i= 0; i < noms.length; i++) {
     const nomAboradableElement = document.createElement('li');
     nomAboradableElement.innerText = noms[i];
     abordablesElements.appendChild(nomAboradableElement)
-
 }
 
 // Création de la liste des produits disponibles
@@ -116,7 +115,7 @@ const disponiblesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
 for(let i=0; i < nomsDispos.length ; i++){
     const dispoNomElement = document.createElement('li');
-    dispoNomElement.innerText = `${nomsDispos[i]}  -  ${pieces[i].prix} €`;
+    dispoNomElement.innerText = `${nomsDispos[i]}  -  ${prixDispos[i]} €`;
     disponiblesElements.appendChild(dispoNomElement)
 }
 
