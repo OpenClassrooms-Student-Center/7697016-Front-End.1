@@ -53,7 +53,8 @@ boutonTrier.addEventListener("click", () => {
     piecesOrdonnees.sort((a, b) => {
         return a.prix - b.prix;
     })
-    console.log(piecesOrdonnees)
+    document.querySelector(".fiches").innerHTML = '';
+    genererPieces(piecesOrdonnees)
 
 });
 
@@ -62,8 +63,9 @@ const boutonFiltrer = document.querySelector(".btn-filtrer");
 boutonFiltrer.addEventListener("click", () => {
    const piecesFiltrees = pieces.filter((piece) => {
        return piece.prix <= 35;
-   });
-   console.log(piecesFiltrees)
+    });    
+    document.querySelector(".fiches").innerHTML = '';
+    genererPieces(piecesFiltrees)
 });
 
 const boutonTrierDecroissant = document.querySelector(".btn-trierDecroissant");
@@ -73,7 +75,8 @@ boutonTrierDecroissant.addEventListener("click", () => {
     piecesOrdonneesDecroissant.sort(function (a, b) {
         return b.prix - a.prix;
      });
-     console.log(piecesOrdonneesDecroissant);
+     document.querySelector(".fiches").innerHTML = '';
+     genererPieces(piecesOrdonneesDecroissant)
 });
 
 const boutonFiltrerDescription = document.querySelector(".btn-description");
@@ -82,7 +85,8 @@ boutonFiltrerDescription.addEventListener("click", function () {
     const piecesFiltreesDescription = pieces.filter(function (piece) {
         return piece.description;
     });
-   console.log(piecesFiltreesDescription);
+    document.querySelector(".fiches").innerHTML = '';
+    genererPieces(piecesFiltreesDescription)
 });
 
 /* Mapper une liste avec fonction lambda */
