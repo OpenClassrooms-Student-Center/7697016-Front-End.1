@@ -71,5 +71,59 @@ boutonFiltrerDescription.addEventListener("click", function () {
     const piecesFiltreesDescription = pieces.filter(function (piece) {
         return piece.description;
     });
-   console.log(piecesFiltreesDescription)
+   console.log(piecesFiltreesDescription);
 });
+
+
+/* Mapper une liste avec fonction lambda */
+
+const noms = pieces.map(piece => piece.nom)
+for (let i = pieces.length -1; i >= 0;  i--) {
+    if(pieces[i].prix > 35) {
+        noms.splice(i, 1);
+    } 
+}
+//console.log(noms);
+
+const nomsDispos = pieces.map(piece => piece.nom);
+for(let i = pieces.length -1 ; i >= 0; i--){
+    if(pieces[i].disponibilite === false){
+        nomsDispos.splice(i,1);
+    }
+}
+
+console.log(nomsDispos)
+
+
+
+// On crée la liste d'éléments abordables
+
+const abordablesElements = document.createElement('ul');
+
+// On ajoute le nom de chaque élément
+
+for (let i= 0; i < noms.length; i++) {
+
+    const nomAboradableElement = document.createElement('li');
+    nomAboradableElement.innerText = noms[i];
+    abordablesElements.appendChild(nomAboradableElement)
+
+}
+
+// Création de la liste des produits disponibles
+
+const disponiblesElements = document.createElement('ul');
+//Ajout de chaque nom à la liste
+for(let i=0; i < nomsDispos.length ; i++){
+    const dispoNomElement = document.createElement('li');
+    dispoNomElement.innerText = `${nomsDispos[i]}  -  ${pieces[i].prix} €`;
+    disponiblesElements.appendChild(dispoNomElement)
+}
+
+// Ajout en-tête et liste au nouveau bloc ajouté html ayant la classe .abordable
+
+document.querySelector('.abordable').appendChild(abordablesElements);
+
+// Ajout des éléments disponibles dans le bloc ayant la classe .disponible
+
+document.querySelector('.disponible').appendChild(disponiblesElements);
