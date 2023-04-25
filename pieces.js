@@ -56,3 +56,22 @@ boutonFiltrer.addEventListener("click", function () {
    console.log(piecesFiltrees)
 });
 
+// Filtrer la liste des pièces pour n’afficher que celles qui ont une description
+const boutonFiltrerDescription = document.querySelector(".btn-filtrer-description");
+boutonFiltrerDescription.addEventListener("click", function(){
+    const piecesAvecDescription = pieces.filter(function(piece){
+        return piece.description;
+    });
+    console.log(piecesAvecDescription);
+});
+
+// Trier par prix decroissant
+const boutonTrierPrixDecroissant = document.querySelector(".btn-trier-prix-decroissant");
+boutonTrierPrixDecroissant.addEventListener("click", function(){
+    const piecesPrixDecroissant = Array.from(pieces);
+    piecesPrixDecroissant.sort(function(a,b){
+        return b.prix - a.prix;
+    });
+    console.log(piecesPrixDecroissant);
+});
+
