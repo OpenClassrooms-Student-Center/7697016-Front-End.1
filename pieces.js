@@ -91,3 +91,24 @@ for(let i=0; i < noms.length ; i++){
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
     .appendChild(abordablesElements)
+
+/ Selectionner les pieces disponible avec le prix
+const piecesDisponibles = pieces.map(piece => `${piece.nom} - ${piece.prix} €`);
+console.log(piecesDisponibles)
+for(let i = piecesDisponibles.length-1; i > 0; i--){
+    if(pieces[i].disponibilite == false){
+        piecesDisponibles.splice(i,1);
+    }
+}
+console.log(piecesDisponibles);
+
+// Creation de la liste
+const disponiblesElements = document.createElement('ul');
+for(let i = 0; i < piecesDisponibles.length; i++){
+    const nomElement = document.createElement('li');
+    nomElement.innerText = piecesDisponibles[i];
+    disponiblesElements.appendChild(nomElement);
+}
+
+document.querySelector('.disponibles').appendChild(disponiblesElements);
+
