@@ -6,7 +6,7 @@
   "scripts": {
     "start": "http-server",
     "dev": "http-server",
-    "lint": "eslint *.js"
+    "lint": "eslint --fix *.js"
   },
   "repository": {
     "type": "git",
