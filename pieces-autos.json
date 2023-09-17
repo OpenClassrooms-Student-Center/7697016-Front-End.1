@@ -1,31 +1,45 @@
 [
-    {
-        "id": 1,
-        "nom": "Ampoule LED",
-        "prix": 60,
-        "categorie": "Optiques"
-    },
-    {
-        "id": 2,
-        "nom": "Plaquettes de frein (x4)",
-        "prix": 40,
-        "categorie": "Freinage"
-    },
-    {
-        "id": 3,
-        "nom": "Ampoule boîte à gants",
-        "prix": 5.49,
-        "categorie": "Optiques"
-    },
-    {
-        "id": 4,
-        "nom": "Liquide de frein",
-        "prix": 9.60,
-        "categorie": "Freinage"
-    },
-    {
-        "id": 5,
-        "nom": "Balai d'essuie-glace",
-        "prix": 29.10
-    }
+	{
+		"id": 1,
+		"nom": "Ampoule LED",
+		"image": "/images/ampoule-led.png",
+		"prix": 60,
+		"categorie": "Optiques",
+		"description": "Distance d’éclairage : 100 mètres !",
+		"disponibilite": true
+	},
+	{
+		"id": 2,
+		"nom": "Plaquettes de frein (x4)",
+		"image": "/images/plaquettes-frein.png",
+		"prix": 40,
+		"categorie": "Freinage",
+		"description": "Une qualité de freinage optimale, par tous les temps.",
+		"disponibilite": true
+	},
+	{
+		"id": 3,
+		"nom": "Ampoule boîte à gants",
+		"image": "/images/ampoule-boite-a-gants.png",
+		"prix": 5.49,
+		"categorie": "Optiques",
+		"description": "Pour y voir clair dans l’habitacle.",
+		"disponibilite": false
+	},
+	{
+		"id": 4,
+		"nom": "Liquide de frein",
+		"image": "images/liquide-frein.png",
+		"prix": 9.6,
+		"categorie": "Freinage",
+		"disponibilite": true
+	},
+	{
+		"id": 5,
+		"nom": "Balai d'essuie-glace",
+		"image": "images/balai-essuie-glace.png",
+		"prix": 29.1,
+		"description": "Performances d’essuyage au top ! Longueur : 550 mm.",
+		"disponibilite": true
+	}
 ]
