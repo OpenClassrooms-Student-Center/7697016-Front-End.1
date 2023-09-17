@@ -19,7 +19,11 @@ for (let i = 0; i < pieces.length; i++) {
 	categorieElement.innerText = article.categorie ?? "";
 
 	const descriptionElement = document.createElement("p");
-	descriptionElement.innerText = article.description;
+	descriptionElement.innerText =
+		article.description ?? "Pas de description pour le moment";
+
+	const dispoElement = document.createElement("p");
+	dispoElement.innerText = `${article.disponibilite ? "En Stock" : "Epuisé"}`;
 
 	const sectionFiches = document.querySelector(".fiches");
 	sectionFiches.appendChild(imageElement);
@@ -27,4 +31,5 @@ for (let i = 0; i < pieces.length; i++) {
 	sectionFiches.appendChild(prixElement);
 	sectionFiches.appendChild(categorieElement);
 	sectionFiches.appendChild(descriptionElement);
+	sectionFiches.appendChild(dispoElement);
 }
