@@ -1,5 +1,9 @@
+const apiPieces = "http://localhost:8081/pieces";
+const apiAvis = "http://localhost:8081/avis";
+
 import {
 	afficheAvis,
+	afficherGraphique,
 	ajoutListenerEnvoyerAvis,
 	ajoutListenersAvis,
 } from "./avis.js";
@@ -7,7 +11,7 @@ import {
 let pieces = window.localStorage.getItem("pieces");
 if (pieces === null) {
 	// Récuperation des pieces via l'API
-	pieces = await fetch("http://localhost:8081/pieces").then((r) => r.json());
+	pieces = await fetch(apiPieces).then((r) => r.json());
 	// Transformation des pièces en JSON
 	const valeurPrices = JSON.stringify(pieces);
 	// Stockage des information dans le lovalStorage
@@ -56,7 +60,7 @@ function genererPieces(pieces) {
 		pieceElement.appendChild(dispoElement);
 		pieceElement.appendChild(btnArticles);
 	}
-	ajoutListenersAvis();
+	ajoutListenersAvis(apiAvis);
 }
 
 genererPieces(pieces);
@@ -155,3 +159,6 @@ buttonMAJ.addEventListener("click", () => {
 	// Pour supprimer tout le localStorage utiliser clear()
 	window.localStorage.clear();
 });
+
+await afficherGraphique(apiAvis, "Nb avis", "y", "#graphique-avis");
+await afficherGraphique(apiAvis, "Nb ommentaire", "x", "#graphique-piece");
