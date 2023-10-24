@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Les Bonnes Pièces</title>
 		<link rel="stylesheet" href="styles.css">
-		<script type="module" src="pieces.js"></script>
+		<script type="module" src="pieces.js"></script>		
 	</head>
 	<body>
 		<header>
@@ -16,14 +16,25 @@
 			<section class="filtres">
 				<h3>Filtres</h3>
 				<button class="btn-trier">Trier par prix croissant</button>
-				<br>
+				<br><br>
 				<button class="btn-trierDecroissant">Trier par prix décroissant</button>
-				<br>
-				<button class="btn-filtrer">Filtrer les pièces non abordables</button>
-				<br>				
+				<br><br>
+				<button class="btn-filtrer">Filtrer les pièces abordables (- 30 $)</button>
+				<br><br>				
 				<button class="btn-description">Filtrer les pièces par description</button>
 				<p>Prix maximum</p>
-				<input type="range" min="5" max="60" step="5" name="prixMax" id="prixMax">
+				<input type="range" min="3" max="60" step="3" name="prixMax" id="prixMax">
+				<br><br>
+				<h3>Ajouter un avis</h3>
+				<form class="formulaire-avis">
+					Identifiant de la pièce :<br>
+					<input type="number" name="piece-id"><br>
+					Nom d'utilisateur :<br>
+					<input type="text" name="utilisateur"><br>
+					Avis :<br>
+					<input type="text" name="commentaire"><br><br>
+					<button>Envoyer</button>
+				</form>
 
 			</section>
 			<!-- Fiches produits -->

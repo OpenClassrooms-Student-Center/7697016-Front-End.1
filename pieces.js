@@ -1,6 +1,11 @@
+import { ajoutListenersAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
+
+
 // Récupération des pièces depuis le fichier JSON
-const reponse = await fetch('pieces-autos.json');
+const reponse = await fetch('http://localhost:8081/pieces');
 const pieces = await reponse.json()
+
+ajoutListenerEnvoyerAvis();
 
 //Fonction qui génère toute la page
 
@@ -18,7 +23,7 @@ function genererPieces(pieces) {
         nomElement.innerText = article.nom;
         // Prix
         const prixElement = document.createElement("p");
-        prixElement.innerText = `Prix: ${article.prix} € (${article.prix < 35 ? "€" : "€€€"})`;
+        prixElement.innerText = `Prix: ${article.prix} $ (${article.prix < 35 ? "$" : "$$$"})`;
         // Catégorie
         const categorieElement = document.createElement("p");
         categorieElement.innerText = article.categorie ?? "(aucune catégorie)";
@@ -28,7 +33,12 @@ function genererPieces(pieces) {
         // Disponibilité
         const disponibiliteElement = document.createElement("p");
         disponibiliteElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
-        
+        // Ajout du code pour les boutons d'avis
+
+        const avisBouton = document.createElement("button");
+        avisBouton.dataset.id = article.id;
+        avisBouton.textContent = "Afficher les avis";
+        avisBouton.classList.add('bouton-fiche');
         // on rattache tout le reste à pieceElement
        
         sectionFiches.appendChild(pieceElement);
@@ -39,8 +49,12 @@ function genererPieces(pieces) {
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(disponibiliteElement);
 
-        //document.body.appendChild(pieceElement);
+        //Code aJouté
+        pieceElement.appendChild(avisBouton);
     }
+
+    // Ajout de la fonction ajoutListenerAvis
+    ajoutListenersAvis();
 }
 
 // Efface le contenu de la balise body et donc l’écran
@@ -130,7 +144,7 @@ const disponiblesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
 for(let i=0; i < nomsDispos.length ; i++){
     const dispoNomElement = document.createElement('li');
-    dispoNomElement.innerText = `${nomsDispos[i]}  -  ${prixDispos[i]} €`;
+    dispoNomElement.innerText = `${nomsDispos[i]}  -  ${prixDispos[i]} $`;
     disponiblesElements.appendChild(dispoNomElement)
 }
 
@@ -150,3 +164,4 @@ prixMax.addEventListener('input', () => {
     document.querySelector(".fiches").innerHTML = '';
     genererPieces(lesPiecesFiltrees)
 })
+
