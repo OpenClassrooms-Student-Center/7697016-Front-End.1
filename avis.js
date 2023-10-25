@@ -13,7 +13,7 @@ export function ajoutListenersAvis() {
 
             const avisElement = document.createElement("p");
             for (let i = 0; i < avis.length; i++) {
-                avisElement.innerHTML += `<br><span style="font-weight: bold"><em>${avis[i].utilisateur} :</em></span> ${avis[i].commentaire} <br><br>`;
+                avisElement.innerHTML += `<br><span style="font-weight: bold"><em>${avis[i].utilisateur} :</em></span> ${avis[i].commentaire} <br><br>⭐ : ${avis[i].nbEtoiles}<br><br`;
             }
 
             pieceElement.appendChild(avisElement);
@@ -26,7 +26,23 @@ export function ajoutListenerEnvoyerAvis() {
     formulaireAvis.addEventListener("submit", function (event) {
 
         event.preventDefault();
-    /* ... */
+
+        const avis = {
+            pieceId: parseInt(event.target.querySelector('[name=piece-id]').value),
+            utilisateur: event.target.querySelector('[name=utilisateur]').value,
+            commentaire: event.target.querySelector('[name=commentaire]').value,
+            nbEtoiles: parseInt(event.target.querySelector('[name=nbEtoiles]').value)
+        }
+
+        // Création de la charge utile au format JSON
+        const chargeUtile = JSON.stringify(avis);
+
+        // Appel de la fonction fetch avec toutes les informations nécessaires
+        fetch("http://localhost:8081/avis", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: chargeUtile
+        });
     });
  }
  
