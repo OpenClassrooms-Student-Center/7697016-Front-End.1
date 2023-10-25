@@ -4,7 +4,8 @@
 		<meta charset="utf-8">
 		<title>Les Bonnes Pièces</title>
 		<link rel="stylesheet" href="styles.css">
-		<script type="module" src="pieces.js"></script>		
+		<script type="module" src="./node_modules/chart.js/dist/chart.umd.js" defer></script>
+		<script type="module" src="pieces.js"></script>
 	</head>
 	<body>
 		<header>
@@ -37,7 +38,11 @@
 					<input type="number" name="nbEtoiles"><br>
 					<button class="bouton-fiche submit">Envoyer</button>
 				</form>
-
+				<h3>Données</h3>
+			<button class="btn-maj bouton-danger">Mettre à jour les pièces</button>
+			<h3>Aperçu des avis</h3>
+			<canvas id="graphique-avis" width="300" height="300"></canvas><br>
+			<canvas id="graphique-dispo" width="300" height="300"></canvas><br>
 			</section>
 			<!-- Fiches produits -->
 			<section class="fiches">
