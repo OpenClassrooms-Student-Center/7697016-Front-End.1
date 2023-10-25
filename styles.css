@@ -39,9 +39,6 @@ main {
 	min-width: 300px;
 	min-height: 400px;
 }
-.filtres h3 {
-	
-}
 
 .fiches {
 	flex: 1;
@@ -90,4 +87,10 @@ main {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.submit {
+	padding: 8px 18px;
+	display: block;
+	margin-left: 40px;
 }
