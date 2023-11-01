@@ -1,4 +1,4 @@
-import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGraphiqueAvis } from "./avis.js";
+import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGraphiqueAvis/*, afficheMesEtoiles*/ } from "./avis.js";
 
 //Récupération des pièces eventuellement stockées dans le localStorage
 let pieces = window.localStorage.getItem('pieces');
@@ -16,12 +16,14 @@ if (pieces === null){
 
 ajoutListenerEnvoyerAvis();
 
+//console.log(afficheMesEtoiles(5));
+
 //Fonction qui génère toute la page
 
 function genererPieces(pieces) {
     for (let i = 0; i < pieces.length; i++) {
         const article = pieces[i];
-        const sectionFiches = document.querySelector(".fiches");        
+        const sectionFiches = document.querySelector(".fiches2");        
         // La piece principale 
         const pieceElement = document.createElement("article");
         // Images
@@ -45,6 +47,7 @@ function genererPieces(pieces) {
         // Ajout du code pour les boutons d'avis
 
         const avisBouton = document.createElement("button");
+        
         avisBouton.dataset.id = article.id;
         avisBouton.textContent = "Afficher les avis";
         avisBouton.classList.add('bouton-fiche');
@@ -78,8 +81,9 @@ for(let i = 0; i < pieces.length; i++){
 
     if(avis !== null){
         const pieceElement = document.querySelector(`article[data-id="${id}"]`);
-        afficherAvis(pieceElement, avis)
+        afficherAvis(pieceElement, avis);
     }
+    //supprimerAvis();
 }
 
 const boutonTrier = document.querySelector(".btn-trier");
@@ -88,7 +92,7 @@ boutonTrier.addEventListener("click", () => {
     piecesOrdonnees.sort((a, b) => {
         return a.prix - b.prix;
     })
-    document.querySelector(".fiches").innerHTML = '';
+    document.querySelector(".fiches2").innerHTML = '';
     genererPieces(piecesOrdonnees)
 
 });
@@ -99,7 +103,7 @@ boutonFiltrer.addEventListener("click", () => {
    const piecesFiltrees = pieces.filter((piece) => {
        return piece.prix <= 35;
     });    
-    document.querySelector(".fiches").innerHTML = '';
+    document.querySelector(".fiches2").innerHTML = '';
     genererPieces(piecesFiltrees)
 });
 
@@ -110,7 +114,7 @@ boutonTrierDecroissant.addEventListener("click", () => {
     piecesOrdonneesDecroissant.sort(function (a, b) {
         return b.prix - a.prix;
      });
-     document.querySelector(".fiches").innerHTML = '';
+     document.querySelector(".fiches2").innerHTML = '';
      genererPieces(piecesOrdonneesDecroissant)
 });
 
@@ -120,7 +124,7 @@ boutonFiltrerDescription.addEventListener("click", function () {
     const piecesFiltreesDescription = pieces.filter(function (piece) {
         return piece.description;
     });
-    document.querySelector(".fiches").innerHTML = '';
+    document.querySelector(".fiches2").innerHTML = '';
     genererPieces(piecesFiltreesDescription)
 });
 
@@ -182,7 +186,7 @@ prixMax.addEventListener('input', () => {
     const lesPiecesFiltrees = pieces.filter((piece) => {
         return piece.prix <= prixMax.value;
     })
-    document.querySelector(".fiches").innerHTML = '';
+    document.querySelector(".fiches2").innerHTML = '';
     genererPieces(lesPiecesFiltrees)
 })
 
@@ -191,6 +195,7 @@ prixMax.addEventListener('input', () => {
 const boutonMettreAJour = document.querySelector(".btn-maj");
 boutonMettreAJour.addEventListener("click", function () {
   window.localStorage.removeItem("pieces");
+  alert('La mise à jour à bien été effectuée !')
 });
 
 await afficherGraphiqueAvis();

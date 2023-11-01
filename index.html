@@ -25,7 +25,7 @@
 				<button class="btn-description">Filtrer les pièces par description</button>
 				<p>Prix maximum</p>
 				<input type="range" min="3" max="60" step="3" name="prixMax" id="prixMax">
-				<br><br>
+				<br><br><br>
 				<h3>Ajouter un avis</h3>
 				<form class="formulaire-avis">
 					Identifiant de la pièce :<br>
@@ -34,26 +34,34 @@
 					<input type="text" name="utilisateur"><br>
 					Avis :<br>
 					<input type="text" name="commentaire"><br>
-					Nombre d'⭐ :<br>
+					Nombre d'étoiles :<br>
 					<input type="number" name="nbEtoiles"><br>
 					<button class="bouton-fiche submit">Envoyer</button>
 				</form>
+				<br><br>
 				<h3>Données</h3>
-			<button class="btn-maj bouton-danger">Mettre à jour les pièces</button>
-			<h3>Aperçu des avis</h3>
-			<canvas id="graphique-avis" width="300" height="300"></canvas><br>
-			<canvas id="graphique-dispo" width="300" height="300"></canvas><br>
+				<button class="btn-maj bouton-danger">Mettre à jour les pièces</button>
+				<br><br><br>
+				<h3>Aperçu des avis</h3>
+				<canvas id="graphique-avis" width="300" height="300"></canvas><br><br>
+				<canvas id="graphique-dispo" width="300" height="300"></canvas><br>
 			</section>
 			<!-- Fiches produits -->
-			<section class="fiches">
-				<!-- Ajout de code -->
-				<div class="abordable">
-					<p>Pièces abordables :</p>
-				</div>
-				<div class="disponible">
-					<p>Pièces disponibles :</p>
-				</div>
-			</section>
+			<div class="div-fiches">
+				<section class="fiches">
+					<!-- Ajout de code -->
+					<div class="abordable">
+						<span class="bold"><p>Pièces abordables :</p></span>
+					</div>
+					<div class="disponible">
+						<span class="bold"><p>Pièces disponibles :</p></span>
+					</div>
+				</section>
+				<section class="fiches2">
+					<!-- Ajout de code -->
+					
+				</section>
+			</div>
 		</main>
 	</body>
 </html>

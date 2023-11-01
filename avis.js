@@ -1,5 +1,5 @@
 export function ajoutListenersAvis() {
-    const piecesElements = document.querySelectorAll(".fiches article button");
+    const piecesElements = document.querySelectorAll(".fiches2 article button");
 
     for (let i = 0; i < piecesElements.length; i++) {
         piecesElements[i].addEventListener("click", async function (event) {
@@ -13,12 +13,40 @@ export function ajoutListenersAvis() {
 
             const avisElement = document.createElement("p");
             for (let i = 0; i < avis.length; i++) {
-                avisElement.innerHTML += `<br><span style="font-weight: bold"><em>${avis[i].utilisateur} :</em></span> ${avis[i].commentaire} <br><br>⭐ : ${avis[i].nbEtoiles}<br><br`;
+                avisElement.innerHTML += `<br><span style="font-weight: bold"><em>${avis[i].utilisateur} :</em></span> ${avis[i].commentaire} <br>${afficheMesEtoiles(avis[i].nbEtoiles)}<br><br>`;
             }
 
             pieceElement.appendChild(avisElement);
         })
     }   
+}
+
+function afficheMesEtoiles(etoiles) {
+
+    let mesEtoiles = "";
+
+    switch(etoiles) {
+        
+        case 5:
+            mesEtoiles = "⭐⭐⭐⭐⭐ ~ 🤩";
+            break;
+        case 4:
+            mesEtoiles = "⭐⭐⭐⭐ ~ 🙂";
+            break;
+        case 3:
+            mesEtoiles = "⭐⭐⭐";
+            break;
+        case 2:
+            mesEtoiles = "⭐⭐ ~ 😑";
+            break;
+        case 1:
+            mesEtoiles = "⭐ ~ 😒";
+            break;
+        default:
+            mesEtoiles = "😐 Non noté";
+    }
+    
+    return mesEtoiles
 }
 
 export function ajoutListenerEnvoyerAvis() {
@@ -31,7 +59,7 @@ export function ajoutListenerEnvoyerAvis() {
             pieceId: parseInt(event.target.querySelector('[name=piece-id]').value),
             utilisateur: event.target.querySelector('[name=utilisateur]').value,
             commentaire: event.target.querySelector('[name=commentaire]').value,
-            nbEtoiles: parseInt(event.target.querySelector('[name=nbEtoiles]').value)
+            nbEtoiles: parseInt(event.target.querySelector('[name=nbEtoiles]').value),
         }
 
         // Création de la charge utile au format JSON
@@ -49,7 +77,7 @@ export function ajoutListenerEnvoyerAvis() {
  export function afficherAvis(pieceElement, avis){
     const avisElement = document.createElement("p");
     for (let i = 0; i < avis.length; i++) {
-        avisElement.innerHTML += `<b>${avis[i].utilisateur}:</b> ${avis[i].commentaire} <br>`;
+        avisElement.innerHTML += `<b>${avis[i].utilisateur}:</b> ${avis[i].commentaire} <br>${avis[i].nbEtoiles}`;
     }
     pieceElement.appendChild(avisElement);
  }
