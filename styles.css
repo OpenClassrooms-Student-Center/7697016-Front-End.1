@@ -13,7 +13,8 @@ header {
 	align-items: center;
 	margin-bottom: 16px;
 	padding: 8px;
-	background-color: #7451eb;
+	/*background-color: #7451eb;*/
+	background-color: rgb(195, 37, 243);
 	text-align: center;
 	color: white;
 }
@@ -34,22 +35,110 @@ main {
 	border-radius: 4px;
 	box-shadow: 0px 0px 4px gray;
 	margin: 8px;
-	padding: 8px;
+	padding-right: 12px;
+	padding-left: 20px;
 	min-width: 300px;
 	min-height: 400px;
 }
-.filtres h3 {
-	text-align: center;
+
+.div-fiches {
+	display: flex;
+	flex-direction: column;
 }
 
 .fiches {
-	flex: 1;
-	margin: 8px;
+	/*flex: 1;
+	margin: 8px;*/
+	margin-bottom: 10px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 4px;
 }
-.fiches img {
+
+.fiches li{
+	line-height: 1.5em;
+}
+
+.fiches2 {
+	/*flex: 1;*/
+	margin: 8px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4px;
+}
+.fiches2 article {
+	border: 1px solid black;
+	padding: 10px;
+}
+.fiches2 article img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	max-width: 200px;
 }
-.fiches p {
+.fiches2 article p {
 	margin-top: 4px;
 	margin-bottom: 4px;
+}
+.fiches2 article h2 {
+	text-align: center;
+}
+
+.bouton-fiche {
+	margin-top: 20px !important;
+	margin-bottom: 10px !important;
+	background-color: rgb(195, 37, 243);
+	color: white;
+	padding: 10px 18px;
+	border: solid 1px transparent;
+	font-size: 15px;
+	border-radius: 50px;
+}
+
+.bouton-fiche:hover {
+	cursor: pointer;
+	background-color: white;
+	border: solid 1px rgb(183, 21, 233);
+	color: rgb(183, 21, 233);;
+}
+
+.fiches article button {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bouton-danger {
+	margin-bottom: 10px !important;
+	background-color: rgb(255, 46, 46);
+	color: white;
+	padding: 8px 18px;
+	border: solid 1px white;
+	font-size: 15px;
+	border-radius: 4px;
+}
+
+.bouton-danger:hover {
+	cursor: pointer;
+	background-color: rgb(25, 227, 241);
+	border: solid 1px rgb(255, 255, 255);
+	color: rgb(255, 255, 255);;
+}
+
+.submit {
+	padding: 8px 18px;
+	display: block;
+	margin-left: 40px;
+}
+
+.avis {
+	font-size: 16px;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.abordable {
+	margin-left: 70px;
 }
