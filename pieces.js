@@ -3,7 +3,6 @@ const reponse = await fetch('pieces-autos.json');
 const pieces = await reponse.json();
 
 for (let i = 0; i < pieces.length; i++) {
-
     const article = pieces[i];
     // Récupération de l'élément du DOM qui accueillera les fiches
     const sectionFiches = document.querySelector(".fiches");
@@ -33,6 +32,23 @@ for (let i = 0; i < pieces.length; i++) {
     //Ajout des éléments au DOM pour l'exercice
     pieceElement.appendChild(descriptionElement);
     pieceElement.appendChild(stockElement);
-
  }
- 
+
+ // Bouton trier
+ const boutonTrier = document.querySelector('.btn-trier')
+ boutonTrier.addEventListener('click', () => {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function(a, b){
+        return a.prix - b.prix;
+    })
+    console.log(piecesOrdonnees);
+ })
+
+// Bouton filtrer
+const boutonFiltrer = document.querySelector('.btn-filtrer')
+boutonFiltrer.addEventListener('click', () => {
+    const piecesFiltrees = pieces.filter(function(piece) {
+        return piece.prix <= 35
+    })
+    console.log(piecesFiltrees)
+})
