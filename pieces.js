@@ -56,3 +56,19 @@ boutonFiltrer.addEventListener("click", function () {
    console.log(piecesFiltrees)
 });
 
+const boutonDescription = document.querySelector(".btn-description");
+boutonDescription.addEventListener('click', () => {
+    const piecesFiltrees = pieces.filter(function (piece) {
+            return piece.description
+    })
+    console.log(piecesFiltrees)
+})
+
+const boutonDecroissant = document.querySelector(".btn-tri-decroissant");
+boutonDecroissant.addEventListener('click', () => {
+    const piecesDecroissant = Array.from(pieces)
+    piecesDecroissant.sort((a, b) => {
+        return b.prix - a.prix
+    })
+    console.log(piecesDecroissant)
+})
