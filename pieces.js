@@ -1,8 +1,13 @@
 //recuperation des pieces depuis le fichier JSON
 const reponse = await fetch("pieces-autos.json");
 const pieces = await reponse.json();
+let index = 0;
 
-const article = pieces[0];
+
+
+for (index = 0; index < pieces.length; index++) {
+    
+const article = pieces[index];
 const imgElement = document.createElement("img");
 imgElement.src = article.image;
 const nomElement = document.createElement("h2");
@@ -17,9 +22,13 @@ const disponibiliteElement = document.createElement("p");
 disponibiliteElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
 
 const sectionFiches = document.querySelector(".fiches");
-sectionFiches.appendChild(imgElement);
-sectionFiches.appendChild(nomElement);
-sectionFiches.appendChild(prixElement);
-sectionFiches.appendChild(catElement);
-sectionFiches.appendChild(descriptionElement);
-sectionFiches.appendChild(disponibiliteElement);
+const pieceElement = document.createElement("article")
+
+sectionFiches.appendChild(pieceElement);
+pieceElement.appendChild(imgElement);
+pieceElement.appendChild(nomElement);
+pieceElement.appendChild(prixElement);
+pieceElement.appendChild(catElement);
+pieceElement.appendChild(descriptionElement);
+pieceElement.appendChild(disponibiliteElement);
+}
