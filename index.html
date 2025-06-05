@@ -3,11 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Les Bonnes Pièces</title>
-		<link rel="stylesheet" href="styles.css">
-		<script type="module" src="pieces.js"></script>
+		<link rel="stylesheet" href="../src/styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Site de vente de pièces détachées pour véhicules">
+		<meta name="keywords" content="pièces détachées, véhicules, automobile, moto, pièces de rechange">
+		<link rel="stylesheet" href="output.css">
 	</head>
 	<body>
-		<header>
+		<header class="w-full">
 			<img src="images/logo-les-bonnes-pieces.png" alt="LOGO">
 			<h1>Les Bonnes Pièces</h1>
 		</header>
@@ -15,11 +18,19 @@
 			<!-- Menu de recherche -->
 			<section class="filtres">
 				<h3>Filtres</h3>
+				<button class="btn-trier bg-blue-500 rounded-md font-bold text-white p-2 mb-5">Trier par prix croissant</button>
+				<button class="btn-decroissant bg-blue-700 rounded-md font-bold text-white p-2 mb-5">Trier par prix decroissant</button>
+				<br>
+				<button class="btn-filtrer bg-purple-500 rounded-md font-bold text-white p-2">Filtrer les pièces non abordables</button>
+				<button class="btn-decrite bg-purple-700 rounded-md font-bold text-white p-2">Filtrer les pièces decrite</button>
 			</section>
 
 			<!-- Fiches produits -->
 			<section class="fiches">
 			</section>
 		</main>
+
+				<script type="module" src="../script/pieces.js" defer></script>
+
 	</body>
 </html>
