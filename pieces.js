@@ -47,6 +47,16 @@ boutonTrier.addEventListener("click", function () {
      console.log(piecesOrdonnees);
 });
 
+const boutonTrierInv = document.querySelector(".btn-trier-inv");
+
+boutonTrierInv.addEventListener("click", function () {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function (a, b) {
+        return b.prix - a.prix;
+     });
+     console.log(piecesOrdonnees);
+});
+
 const boutonFiltrer = document.querySelector(".btn-filtrer");
 
 boutonFiltrer.addEventListener("click", function () {
@@ -55,4 +65,11 @@ boutonFiltrer.addEventListener("click", function () {
     });
    console.log(piecesFiltrees)
 });
+const boutonFiltrer1 = document.querySelector(".btn-filtrer-1");
 
+boutonFiltrer1.addEventListener("click", function () {
+    const piecesFiltrees = pieces.filter(function (piece) {
+        return piece.description != "";
+    });
+   console.log(piecesFiltrees)
+});
